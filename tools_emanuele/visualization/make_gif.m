@@ -10,11 +10,9 @@ function make_gif(poses_gt,landmarks_gt,XR_history,XL_history,land_IDs,pose_IDs)
 
   end
 
-  graphics_toolkit ("gnuplot");
   for i=1:length_history
     disp(["creating gif: img ",num2str(i),"/",num2str(length_history)])
     fig = figure(3);
-    set(fig,'visible','off');
     drawLandmarks_ema(landmarks_gt, 'red', 'fill');
     hold on;
     drawLandmarks_ema(landmarks_history(i,:), 'green', 'fill');
@@ -49,7 +47,6 @@ function make_gif(poses_gt,landmarks_gt,XR_history,XL_history,land_IDs,pose_IDs)
     end
   end
   currentFolder = pwd;
-  graphics_toolkit ("fltk");
   disp(["gif saved in ",currentFolder,FileName])
 
 

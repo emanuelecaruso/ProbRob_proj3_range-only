@@ -35,7 +35,7 @@ landmark_associations = landmark_associations(pose_IDs,observations,land_IDs);
 pose_associations = pose_associations(transitions,pose_IDs,land_IDs);
 
 % compute certainty of measurements by looking at the groundtruth and the measurements
-omega_range = compute_range_omega(landmark_associations,landmarks_gt, poses_gt);
+omega_range = compute_range_omega(landmark_associations,landmarks_gt, poses_gt)
 omega_pose = compute_pose_omega(pose_associations, poses_gt);
 
 % total least squares
