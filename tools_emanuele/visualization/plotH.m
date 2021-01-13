@@ -10,5 +10,4 @@ function plotH(H)
   image([0.5, size(H_,2)-0.5], [0.5, size(H_,1)-0.5], H_*64);
   refresh()
   hold off;
-  waitfor(gcf)
 end

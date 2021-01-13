@@ -13,8 +13,8 @@ source "./tools_grisetti/utilities/geometry_helpers_2d.m"
 
 %static variables
 damping=1;
-kernel_threshold=0.5;
-num_iterations=10;
+kernel_threshold=1;
+num_iterations=20;
 
 %indexes to IDs
 pose_IDs= get_poseIDs(poses_gt);
@@ -43,6 +43,8 @@ omega_pose = compute_pose_omega(pose_associations, poses_gt);
                                                                                                                         pose_associations,omega_range,
                                                                                                                         omega_pose,num_iterations,damping,
                                                                                                                         kernel_threshold);
+
+
 
 
 % plot the evolution of chi square and inliers
