@@ -15,6 +15,8 @@ source "./tools_grisetti/utilities/geometry_helpers_2d.m"
 damping=1;
 kernel_threshold=1;
 num_iterations=20;
+omega_range = 1e3;
+omega_pose = 1e3*eye(3);
 
 %indexes to IDs
 pose_IDs= get_poseIDs(poses_gt);
@@ -34,9 +36,7 @@ landmarks_guess = landmarks_compute_guess(poses_guess,observations,land_IDs);
 landmark_associations = landmark_associations(pose_IDs,observations,land_IDs);
 pose_associations = pose_associations(transitions,pose_IDs,land_IDs);
 
-% compute certainty of measurements by looking at the groundtruth and the measurements
-omega_range = compute_range_omega(landmark_associations,landmarks_gt, poses_gt)
-omega_pose = compute_pose_omega(pose_associations, poses_gt);
+
 
 % total least squares
 [XR_history,XL_history,H,b,chi_history_pose,chi_history_land,num_inliers_history_pose,num_inliers_history_land]=Total_LS(XR,XL,landmark_associations,
